@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@seashard/contracts':
-        specifier: ^0.1.0
-        version: 0.1.0(@seashard/plugin-sdk@0.1.0)
+        specifier: file:../../SeaShard/packages/contracts
+        version: file:../../SeaShard/packages/contracts(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk)
       '@seashard/plugin-sdk':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: file:../../SeaShard/packages/plugin-sdk
+        version: file:../../SeaShard/packages/plugin-sdk
       '@seashard/ui-sdk':
-        specifier: ^0.1.0
-        version: 0.1.0(@seashard/contracts@0.1.0(@seashard/plugin-sdk@0.1.0))(@seashard/plugin-sdk@0.1.0)(vue@3.5.41(typescript@5.9.3))
+        specifier: file:../../SeaShard/packages/ui-sdk
+        version: file:../../SeaShard/packages/ui-sdk(@seashard/contracts@file:../../SeaShard/packages/contracts(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk))(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk)(vue@3.5.41(typescript@5.9.3))
       '@types/node':
         specifier: ^24.0.0
         version: 24.13.3
@@ -367,18 +367,18 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@seashard/contracts@0.1.0':
-    resolution: {integrity: sha512-0soyQpLYfGFc4Z5Gs6QWim5p10ofYqp6MWTlhVOmVPo6xmP35fNIZiCtOoxp9EJFbWtPCZVmjJuriwilmjheEQ==}
+  '@seashard/contracts@file:../../SeaShard/packages/contracts':
+    resolution: {directory: ../../SeaShard/packages/contracts, type: directory}
     engines: {node: '>=24.11.0'}
     peerDependencies:
       '@seashard/plugin-sdk': ^0.1.0
 
-  '@seashard/plugin-sdk@0.1.0':
-    resolution: {integrity: sha512-gUXeyYcVpqnZAOl/e4mpiBXBvJt/Gu2MdMcM7QOZ81P9lCHy99X+QPcr2+dAOawRwtd0+nCyuq2EpByWC4Rjwg==}
+  '@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk':
+    resolution: {directory: ../../SeaShard/packages/plugin-sdk, type: directory}
     engines: {node: '>=24.11.0'}
 
-  '@seashard/ui-sdk@0.1.0':
-    resolution: {integrity: sha512-TBRv8WJM0krCbxaz/gKI9JTLoafxYCKpTITjYmVbIjIJ9CgDtQTy42VeRVVC2PB5aPW2FdnzEYV6qQc6+Ibc+A==}
+  '@seashard/ui-sdk@file:../../SeaShard/packages/ui-sdk':
+    resolution: {directory: ../../SeaShard/packages/ui-sdk, type: directory}
     engines: {node: '>=24.11.0'}
     peerDependencies:
       '@seashard/contracts': ^0.1.0
@@ -653,16 +653,16 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@seashard/contracts@0.1.0(@seashard/plugin-sdk@0.1.0)':
+  '@seashard/contracts@file:../../SeaShard/packages/contracts(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk)':
     dependencies:
-      '@seashard/plugin-sdk': 0.1.0
+      '@seashard/plugin-sdk': file:../../SeaShard/packages/plugin-sdk
 
-  '@seashard/plugin-sdk@0.1.0': {}
+  '@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk': {}
 
-  '@seashard/ui-sdk@0.1.0(@seashard/contracts@0.1.0(@seashard/plugin-sdk@0.1.0))(@seashard/plugin-sdk@0.1.0)(vue@3.5.41(typescript@5.9.3))':
+  '@seashard/ui-sdk@file:../../SeaShard/packages/ui-sdk(@seashard/contracts@file:../../SeaShard/packages/contracts(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk))(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk)(vue@3.5.41(typescript@5.9.3))':
     dependencies:
-      '@seashard/contracts': 0.1.0(@seashard/plugin-sdk@0.1.0)
-      '@seashard/plugin-sdk': 0.1.0
+      '@seashard/contracts': file:../../SeaShard/packages/contracts(@seashard/plugin-sdk@file:../../SeaShard/packages/plugin-sdk)
+      '@seashard/plugin-sdk': file:../../SeaShard/packages/plugin-sdk
       vue: 3.5.41(typescript@5.9.3)
 
   '@types/node@24.13.3':

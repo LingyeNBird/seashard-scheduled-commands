@@ -107,7 +107,8 @@ node D:/projects/cowork/SeaShard/apps/cli/dist/index.js inspect service seashard
 ```powershell
 pnpm install
 ```
-SDK 依赖直接使用 npm Registry 上公开发布的 `@seashard/plugin-sdk`、`@seashard/contracts` 和 `@seashard/ui-sdk` 0.1.x，无需在仓库旁放置 SeaShard 源码。
+
+SDK 依赖当前使用相邻 SeaShard 工作区的 `file:` 路径，以确保编译目标就是本机最新公开 API。发布到独立环境时，可把这些三项替换为对应的 `0.1.x` npm 版本。
 
 ## 构建与验证
 
@@ -122,10 +123,10 @@ pnpm run plugin:validate
 
 - TypeScript `tsc --noEmit`：通过。
 - Node 行为测试：7/7 通过。
-- `bundle/dist/host.js`：27.1 KB。
-- `bundle/dist/client.js`：125.7 KB。
+- `bundle/dist/host.js`：28.3 KB。
+- `bundle/dist/client.js`：126.2 KB。
 - CLI 校验：2 个 Entry、3 个 bundle 文件。
-- bundle SHA-256 摘要：`75661397016e8c4acbf6e7d05f382f60685968fe3b40c56976db4bb415534045`。
+- bundle SHA-256 摘要：`57996dc96e01ff39404d7232a40b7d6626b786b179da8692011dadf60e15b684`。
 
 测试覆盖每日与每周时间推进、过期单次计划拒绝、未知实例拒绝、运行中服务器成功调用 `sendCommand` 且只调用一次、停止状态不发送、Agent 工具完整注册和取消信号。
 

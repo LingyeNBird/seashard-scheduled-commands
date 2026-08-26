@@ -1,3 +1,5 @@
+import { defineServiceContract } from "@seashard/plugin-sdk";
+
 export const scheduledCommandsContractName = "seashard-plugin.scheduled-commands";
 
 export type OnceSchedule = {
@@ -84,4 +86,6 @@ export interface ScheduledCommandsService {
   runTaskNow(input: TaskIdentityInput): Promise<TaskExecution>;
 }
 
-export const scheduledCommandsContract = scheduledCommandsContractName;
+export const scheduledCommandsContract = defineServiceContract<ScheduledCommandsService>(
+  scheduledCommandsContractName,
+);
