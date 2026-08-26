@@ -1,4 +1,4 @@
-import type { ClientServerSelection } from "@seashard/ui-sdk";
+import type { ClientServerSelection } from "./ui-sdk-compat";
 import { defineComponent, h } from "vue";
 import type {
   CommandSchedule,
