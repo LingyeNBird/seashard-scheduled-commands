@@ -1,0 +1,33 @@
+{
+  "name": "seashard-scheduled-commands-development",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "build": "pnpm run typecheck && pnpm run test && node build.mjs",
+    "watch": "node build.mjs --watch",
+    "plugin:validate": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin validate ./bundle",
+    "plugin:dev": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin dev ./bundle",
+    "plugin:logs": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin logs",
+    "plugin:reload": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin reload",
+    "plugin:pack": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin pack ./bundle",
+    "plugin:install": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin install ./seashard-plugin.scheduled-commands-0.1.0.seashard-plugin"
+  },
+  "devDependencies": {
+    "@seashard/contracts": "file:../../SeaShard/packages/contracts",
+    "@seashard/plugin-sdk": "file:../../SeaShard/packages/plugin-sdk",
+    "@seashard/ui-sdk": "file:../../SeaShard/packages/ui-sdk",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.9",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vue": "^3.5.20"
+  }
+}
