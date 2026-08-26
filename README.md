@@ -108,7 +108,7 @@ node D:/projects/cowork/SeaShard/apps/cli/dist/index.js inspect service seashard
 pnpm install
 ```
 
-SDK 依赖当前使用相邻 SeaShard 工作区的 `file:` 路径，以确保编译目标就是本机最新公开 API。发布到独立环境时，可把这些三项替换为对应的 `0.1.x` npm 版本。
+SDK 依赖使用 npm Registry 上公开发布的 `@seashard/plugin-sdk`、`@seashard/contracts` 和 `@seashard/ui-sdk` 0.1.x，无需在仓库旁放置 SeaShard 源码。插件源码直接面向当前官方 API；若 Registry 版本暂未同步，请等待上游发布新版 SDK 后再安装。
 
 ## 构建与验证
 

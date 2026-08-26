@@ -21,9 +21,9 @@
     "plugin:install": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin install ./seashard-plugin.scheduled-commands-0.1.0.seashard-plugin"
   },
   "devDependencies": {
-    "@seashard/contracts": "file:../../SeaShard/packages/contracts",
-    "@seashard/plugin-sdk": "file:../../SeaShard/packages/plugin-sdk",
-    "@seashard/ui-sdk": "file:../../SeaShard/packages/ui-sdk",
+    "@seashard/contracts": "^0.1.0",
+    "@seashard/plugin-sdk": "^0.1.0",
+    "@seashard/ui-sdk": "^0.1.0",
     "@types/node": "^24.0.0",
     "esbuild": "^0.25.9",
     "tsx": "^4.20.5",
