@@ -1,6 +1,6 @@
 {
   "name": "seashard-scheduled-commands-development",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "license": "AGPL-3.0-only",
@@ -18,7 +18,7 @@
     "plugin:logs": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin logs",
     "plugin:reload": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin reload",
     "plugin:pack": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin pack ./bundle",
-    "plugin:install": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin install ./seashard-plugin.scheduled-commands-0.2.0.seashard-plugin"
+    "plugin:install": "node D:/projects/cowork/SeaShard/apps/cli/dist/index.js plugin install ./seashard-plugin.scheduled-commands-0.2.1.seashard-plugin"
   },
   "devDependencies": {
     "@seashard/contracts": "^0.3.0",
