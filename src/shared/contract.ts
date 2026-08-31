@@ -49,7 +49,7 @@ export type SchedulerInstance = {
 export type SchedulerSnapshot = {
   instance: SchedulerInstance;
   tasks: ScheduledCommandTask[];
-  hostTimeZone: string;
+  scheduleTimeZone: string;
   generatedAt: string;
 };
 

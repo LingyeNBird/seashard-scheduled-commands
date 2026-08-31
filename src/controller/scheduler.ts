@@ -97,7 +97,7 @@ export class ScheduledCommandEngine {
       return {
         instance,
         tasks: this.sortedTasks(input.instanceId),
-        hostTimeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "local",
+        scheduleTimeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "local",
         generatedAt: this.now().toISOString(),
       };
     });
@@ -133,12 +133,13 @@ export class ScheduledCommandEngine {
       await this.requireInstance(input.instanceId);
       const { index, task } = this.requireTask(input);
       const now = this.now();
+      const nextRunAt = task.enabled ? calculateInitialRunAt(input.schedule, now) : undefined;
       const updated: ScheduledCommandTask = {
         ...task,
         name: input.name,
         command: input.command,
         schedule: input.schedule,
-        nextRunAt: task.enabled ? calculateInitialRunAt(input.schedule, now) : undefined,
+        nextRunAt,
         updatedAt: now.toISOString(),
       };
       this.tasks[index] = removeUndefinedNextRun(updated);

@@ -9,10 +9,10 @@ await mkdir(outputDirectory, { recursive: true });
 
 const entries = [
   {
-    name: "host",
+    name: "controller",
     options: {
-      entryPoints: ["src/host/index.ts"],
-      outfile: "bundle/dist/host.js",
+      entryPoints: ["src/controller/index.ts"],
+      outfile: "bundle/dist/controller.js",
       platform: "node",
       target: "node24",
     },
@@ -32,6 +32,7 @@ const common = {
   bundle: true,
   format: "esm",
   logLevel: "info",
+  minify: !watch,
   sourcemap: watch ? "inline" : false,
   treeShaking: true,
 };

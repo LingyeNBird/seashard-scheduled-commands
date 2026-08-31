@@ -15,8 +15,9 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       name: "list",
       title: "列出服务器定时命令",
       description: "列出指定 SeaShard 服务器实例的全部定时命令、启用状态、下次执行时间和最近结果。",
+      confirmationLevel: 0,
       inputSchema: objectSchema({ instanceId: stringSchema("SeaShard 服务器实例 ID") }, ["instanceId"]),
-      outputDescription: "服务器信息、Host 时区和定时命令列表。",
+      outputDescription: "服务器信息、计划时区和定时命令列表。",
       examples: [{ instanceId: "server-instance-id" }],
     },
     async (input, execution) => {
@@ -31,7 +32,8 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       name: "create",
       title: "创建服务器定时命令",
       description:
-        "为指定服务器创建定时命令。schedule 支持 once(runAt ISO 时间)、daily(time HH:mm) 或 weekly(time HH:mm, weekdays 0=周日到6=周六)。时间按 SeaShard Host 本地时区解释。",
+        "为指定服务器创建定时命令。schedule 支持 once(runAt ISO 时间)、daily(time HH:mm) 或 weekly(time HH:mm, weekdays 0=周日到6=周六)。时间按 SeaShard Controller 本地时区解释。",
+      confirmationLevel: 2,
       inputSchema: objectSchema(
         {
           instanceId: stringSchema("SeaShard 服务器实例 ID"),
@@ -63,6 +65,7 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       name: "update",
       title: "修改服务器定时命令",
       description: "修改指定服务器中的任务名称、控制台命令和执行计划，保留任务当前启用状态。",
+      confirmationLevel: 2,
       inputSchema: objectSchema(
         {
           instanceId: stringSchema("SeaShard 服务器实例 ID"),
@@ -86,7 +89,8 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       namespace: "scheduled-commands",
       name: "set-enabled",
       title: "启停服务器定时命令",
-      description: "启用或停用指定服务器中的一个定时任务。重新启用时会从 Host 当前时间计算下次执行时间。",
+      description: "启用或停用指定服务器中的一个定时任务。重新启用时会从 Controller 当前时间计算下次执行时间。",
+      confirmationLevel: 2,
       inputSchema: objectSchema(
         {
           instanceId: stringSchema("SeaShard 服务器实例 ID"),
@@ -109,6 +113,7 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       name: "delete",
       title: "删除服务器定时命令",
       description: "永久删除指定服务器中的一个定时任务。",
+      confirmationLevel: 1,
       inputSchema: identitySchema(),
       outputDescription: "包含 deleted=true、服务器 ID 和任务 ID。",
     },
@@ -127,6 +132,7 @@ export function registerAgentTools(context: PluginContext, engine: ScheduledComm
       title: "立即执行服务器定时命令",
       description:
         "立即执行指定任务但不改变其后续计划。插件会先验证服务器实例仍存在且进程状态为 running。",
+      confirmationLevel: 2,
       inputSchema: identitySchema(),
       outputDescription: "本次命令执行的成功或失败结果。",
     },

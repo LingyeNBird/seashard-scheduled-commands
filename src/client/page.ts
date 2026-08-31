@@ -272,7 +272,7 @@ export function createScheduledCommandsPage(
                 ? h("section", { class: "sc-panel" }, [
                     emptyState(
                       "还没有定时任务",
-                      `在 ${this.snapshot.hostTimeZone} 时区创建延时、每日或每周命令。`,
+                      `在 ${this.snapshot.scheduleTimeZone} 时区创建延时、每日或每周命令。`,
                       h(
                         "button",
                         {
@@ -394,7 +394,7 @@ function renderScheduleFields(form: FormState) {
         value: form.runAt,
         onInput: (event: Event) => { form.runAt = (event.target as HTMLInputElement).value; },
       }),
-      "使用 SeaShard Host 所在机器的本地时间。",
+      "使用 SeaShard Controller 所在机器的本地时间。",
       true,
     );
   }
@@ -407,7 +407,7 @@ function renderScheduleFields(form: FormState) {
         value: form.time,
         onInput: (event: Event) => { form.time = (event.target as HTMLInputElement).value; },
       }),
-      "按 Host 本地时区计算下次执行时间。",
+      "按 Controller 本地时区计算下次执行时间。",
       true,
     );
   }

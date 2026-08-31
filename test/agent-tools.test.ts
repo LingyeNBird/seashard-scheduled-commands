@@ -5,8 +5,8 @@ import type {
   AgentToolHandler,
   PluginContext,
 } from "@seashard/plugin-sdk";
-import { registerAgentTools } from "../src/host/agent-tools";
-import type { ScheduledCommandEngine } from "../src/host/scheduler";
+import { registerAgentTools } from "../src/controller/agent-tools";
+import type { ScheduledCommandEngine } from "../src/controller/scheduler";
 
 interface RegisteredTool {
   definition: AgentToolDefinition;
@@ -28,7 +28,7 @@ test("registers the complete scheduled-command Agent surface", async () => {
       return {
         instance: { id: input.instanceId, name: "Test Server" },
         tasks: [],
-        hostTimeZone: "UTC",
+        scheduleTimeZone: "UTC",
         generatedAt: "2026-01-01T00:00:00.000Z",
       };
     },
@@ -47,6 +47,10 @@ test("registers the complete scheduled-command Agent surface", async () => {
       "scheduled-commands_run-now",
     ],
   );
+  assert.deepEqual(
+    registered.map(({ definition }) => definition.confirmationLevel ?? 0),
+    [0, 2, 2, 2, 1, 2],
+  );
   for (const { definition } of registered) {
     assert.equal(definition.inputSchema.additionalProperties, false);
   }
@@ -57,7 +61,7 @@ test("registers the complete scheduled-command Agent surface", async () => {
   assert.deepEqual(output, {
     instance: { id: "server-a", name: "Test Server" },
     tasks: [],
-    hostTimeZone: "UTC",
+    scheduleTimeZone: "UTC",
     generatedAt: "2026-01-01T00:00:00.000Z",
   });
 

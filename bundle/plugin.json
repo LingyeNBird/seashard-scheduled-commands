@@ -1,12 +1,13 @@
 {
   "id": "seashard-plugin.scheduled-commands",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "seashard-plugin",
   "entries": [
     {
       "id": "scheduler.host",
       "runtime": "host",
-      "module": "./dist/host.js",
+      "execution": "controller",
+      "module": "./dist/controller.js",
       "hostProfiles": ["electron"],
       "uses": {
         "seashard.server-instance-manager": ["listForClient"],

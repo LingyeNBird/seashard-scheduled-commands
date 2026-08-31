@@ -27,5 +27,5 @@ export async function apply(context: PluginContext, _config: JsonValue): Promise
 
   context.provide(scheduledCommandsContract, createScheduledCommandsProvider(engine));
   registerAgentTools(context, engine);
-  console.log(`[scheduled-commands] active runtime=${context.runtimeId}`);
+  console.log(`[scheduled-commands] Controller active runtime=${context.runtimeId}`);
 }

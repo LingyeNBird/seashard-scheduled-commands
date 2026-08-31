@@ -7,7 +7,7 @@ import type {
   PluginStoragePutOptions,
   PluginStoredDocument,
 } from "@seashard/plugin-sdk";
-import { ScheduledCommandEngine } from "../src/host/scheduler";
+import { ScheduledCommandEngine } from "../src/controller/scheduler";
 
 class MemoryStorage implements PluginStorage {
   private document: PluginStoredDocument | undefined;
