@@ -118,7 +118,7 @@ pnpm install
 
 源码依赖使用 npm Registry 已发布的 `@seashard/plugin-sdk`、`@seashard/contracts` 和 `@seashard/ui-sdk` 0.3.x；`package.json` 使用 `^0.3.0`，`pnpm-lock.yaml` 已由三个公开的 0.3.0 包重新生成，不包含 `file:`、`link:` 或本机 SeaShard 源码路径。
 
-0.2.1 是依赖可复现性补丁：功能与 0.2.0 相同，但构建输入由临时权威源码切换为 npm Registry 的正式 0.3.0 包，并提交对应 lockfile。
+0.2.2 扩展官方运行目标：Controller Entry 支持 `electron` 与 `node` Host Profile，Client Entry 支持 `desktop` 与 `web` Target；业务逻辑不变。
 
 ## 构建与验证
 
@@ -136,8 +136,8 @@ pnpm run plugin:validate
 - `bundle/dist/controller.js`：17,433 bytes；
 - `bundle/dist/client.js`：30,015 bytes；
 - CLI 校验：2 个 Entry、3 个 bundle 文件；
-- package digest：`21b6f0920e2726030e113b2ba1dd982b3ef77381bb142d250dc25377bce9c8ab`；
-- 发布归档 SHA-256：`e45b345b080891af93ac6d2d811bd137aa83481f4e691a02b0afaac344a84c73`。
+- package digest：`0fc2b2c5baf13d896a82e14ece36d9b8343d0bdc13db953f610532b2b3834539`；
+- 发布归档 SHA-256：`07163ccd6540a9760496c0072825a98075428351aea1b7cd21b1b00fc21e5122`。
 
 测试覆盖每日与每周时间推进、过期单次计划拒绝、未知实例拒绝、运行中服务器成功调用 `sendCommand` 且只调用一次、停止状态不发送、Agent 工具完整注册、取消信号和精确确认级别。
 
@@ -171,14 +171,14 @@ pnpm run plugin:install
 输出归档：
 
 ```text
-seashard-plugin.scheduled-commands-0.2.1.seashard-plugin
+seashard-plugin.scheduled-commands-0.2.2.seashard-plugin
 ```
 
-0.2.1 归档已由 SeaShard CLI 实际安装并启用：
+0.2.2 归档已由 SeaShard CLI 实际安装并启用：
 
 ```text
-Installed and enabled seashard-plugin.scheduled-commands@0.2.1
-Digest: 21b6f0920e2726030e113b2ba1dd982b3ef77381bb142d250dc25377bce9c8ab
+Installed and enabled seashard-plugin.scheduled-commands@0.2.2
+Digest: 0fc2b2c5baf13d896a82e14ece36d9b8343d0bdc13db953f610532b2b3834539
 ```
 
 本次迁移不改页面功能，也没有为验证而启动或修改用户的 Minecraft 服务器。真实 `running` 状态的发送分支由行为测试确认只调用一次公开的 `seashard.server-runtime.sendCommand(instanceId, command)`；停止状态明确拒绝且不发送命令。

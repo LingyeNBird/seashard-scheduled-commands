@@ -1,6 +1,6 @@
 {
   "id": "seashard-plugin.scheduled-commands",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "seashard-plugin",
   "entries": [
     {
@@ -8,7 +8,7 @@
       "runtime": "host",
       "execution": "controller",
       "module": "./dist/controller.js",
-      "hostProfiles": ["electron"],
+      "hostProfiles": ["electron", "node"],
       "uses": {
         "seashard.server-instance-manager": ["listForClient"],
         "seashard.server-runtime": ["get", "sendCommand"]
@@ -18,7 +18,7 @@
       "id": "scheduler.client",
       "runtime": "client",
       "module": "./dist/client.js",
-      "targets": ["desktop"],
+      "targets": ["desktop", "web"],
       "uses": {
         "seashard-plugin.scheduled-commands": [
           "listTasks",
